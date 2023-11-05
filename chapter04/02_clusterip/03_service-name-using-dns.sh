@@ -1,7 +1,7 @@
 # DNS 서버를 이용해서 Service 이름으로 Service 호출
 
 # snackbar 네임스페이스 생성
-kubect create namespace snackbar
+kubectl create namespace snackbar
 
 # Service, Deployment 배포 (service.yaml)
 kubectl apply -f service.yaml

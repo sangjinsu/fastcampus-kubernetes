@@ -1,7 +1,7 @@
 # 환경변수를 이용한 Service 호출 
 
 # snackbar 네임스페이스 생성
-kubect create namespace snackbar
+kubectl create namespace snackbar
 
 # Service, Deployment 배포 (service.yaml)
 kubectl apply -f service.yaml
