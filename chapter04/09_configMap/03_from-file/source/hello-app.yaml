@@ -10,7 +10,10 @@ spec:
     image: yoonjeong/hello-app:1.0
     ports:
     - containerPort: 8080
-    # 여기에 작성 
+    # 여기에 작성
+    envFrom:
+      - configMapRef:
+          name: greeting-config-from-file
     env:
     - name: GREETING
       value: $(MESSAGE)! $(STUDENT_NAME)

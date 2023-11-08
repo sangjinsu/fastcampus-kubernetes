@@ -6,12 +6,24 @@ metadata:
     name: hello-app
 spec:
   containers:
-  - name: hello-app
-    image: yoonjeong/hello-app:1.0
-    ports:
-    - containerPort: 8080
-    # 여기에 환경변수 작성
-    resources:
-      limits:
-        memory: "64Mi"
-        cpu: "50m"
+    - name: hello-app
+      image: yoonjeong/hello-app:1.0
+      ports:
+        - containerPort: 8080
+      env:
+        - name: STUDENT_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: greeting-config
+              key: STUDENT_NAME
+        - name: MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: greeting-config
+              key: MESSAGE
+        - name: GREETING
+          value: $(MESSAGE)! $(STUDENT_NAME)
+      resources:
+        limits:
+          memory: "64Mi"
+          cpu: "50m"
